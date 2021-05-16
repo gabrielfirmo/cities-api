@@ -1,6 +1,5 @@
 package com.github.gabrielfirmo.citiesapi.countries;
 
-import com.github.gabrielfirmo.citiesapi.countries.Country;
 import com.github.gabrielfirmo.citiesapi.countries.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
