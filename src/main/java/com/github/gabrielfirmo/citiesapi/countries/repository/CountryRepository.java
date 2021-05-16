@@ -1,4 +1,4 @@
-package com.github.gabrielfirmo.citiesapi.repository;
+package com.github.gabrielfirmo.citiesapi.countries.repository;
 
 import com.github.gabrielfirmo.citiesapi.countries.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
