@@ -2,36 +2,27 @@
 
 Este projeto consiste na construção de uma API REST para consulta de países, cidades e estados brasileiros, além de calcular a distância entre cidades do Brasil. Foi utilizado o framework Spring para o desenvolvimento, PostgreSql para gerenciar o banco de dados e a plataforma Heroku para hospedar a aplicação.
 
+A base de dados utilizada é encontrada [aqui](https://github.com/chinnonsantos/sql-paises-estados-cidades).
 
 
-## DataBase
 
-### Postgres
+## Exemplos
 
-* [Postgres Docker Hub](https://hub.docker.com/_/postgres)
+São exemplos de URLs suportadas:
 
-```shell script
-docker run --name cities-db -d -p 5432:5432 -e POSTGRES_USER=postgres_user_city -e POSTGRES_PASSWORD=super_password -e POSTGRES_DB=cities postgres
-```
+* Listar a primeira página de países https://frozen-reaches-81528.herokuapp.com/countries
+* Escolher uma página e definir a quantidade de países em cada uma https://frozen-reaches-81528.herokuapp.com/countries?page=5&size=20 
+* Encontrar um país pelo Id https://frozen-reaches-81528.herokuapp.com/countries/225 
+* Listar todos os estados https://frozen-reaches-81528.herokuapp.com/states
+* Encontrar um estado pelo Id https://frozen-reaches-81528.herokuapp.com/states/16
+* Listar a primeira página de cidades https://frozen-reaches-81528.herokuapp.com/cities
+* Escolher uma página e definir a quantidade de cidades em cada uma https://frozen-reaches-81528.herokuapp.com/cities?page=2&size=73
+* Encontrar uma cidade pelo Id https://frozen-reaches-81528.herokuapp.com/cities/3315
+* Calcular a distância em Km entre duas cidades por meio de seus Ids https://frozen-reaches-81528.herokuapp.com/distances?from=3315&to=147
 
-### Populate
 
-* [data](https://github.com/chinnonsantos/sql-paises-estados-cidades/tree/master/PostgreSQL)
 
-```shell script
-cd ~/workspace/sql-paises-estados-cidades/PostgreSQL
-
-docker run -it --rm --net=host -v $PWD:/tmp postgres /bin/bash
-
-psql -h localhost -U postgres_user_city cities -f /tmp/pais.sql
-psql -h localhost -U postgres_user_city cities -f /tmp/estado.sql
-psql -h localhost -U postgres_user_city cities -f /tmp/cidade.sql
-
-psql -h localhost -U postgres_user_city cities
-
-CREATE EXTENSION cube; 
-CREATE EXTENSION earthdistance;
-```
+### Documentação relativa ao cálculo de distância
 
 * [Postgres Earth distance](https://www.postgresql.org/docs/current/earthdistance.html)
 * [earthdistance--1.0--1.1.sql](https://github.com/postgres/postgres/blob/master/contrib/earthdistance/earthdistance--1.0--1.1.sql)
@@ -39,39 +30,13 @@ CREATE EXTENSION earthdistance;
 * [postgrescheatsheet](https://postgrescheatsheet.com/#/tables)
 * [datatype-geometric](https://www.postgresql.org/docs/current/datatype-geometric.html)
 
-### Access
 
-```shell script
-docker exec -it cities-db /bin/bash
 
-psql -U postgres_user_city cities
-```
+## Material de apoio
 
-### Query Earth Distance
-
-Point
-```roomsql
-select ((select lat_lon from cidade where id = 4929) <@> (select lat_lon from cidade where id=5254)) as distance;
-```
-
-Cube
-```roomsql
-select earth_distance(
-    ll_to_earth(-21.95840072631836,-47.98820114135742), 
-    ll_to_earth(-22.01740074157715,-47.88600158691406)
-) as distance;
-```
-
-## Spring Boot
+### Spring Boot
 
 * [https://start.spring.io/](https://start.spring.io/)
-
-+ Java 8
-+ Gradle Project
-+ Jar
-+ Spring Web
-+ Spring Data JPA
-+ PostgreSQL Driver
 
 ### Spring Data
 
