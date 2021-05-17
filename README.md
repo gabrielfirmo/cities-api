@@ -1,13 +1,8 @@
 # Cities API
 
-## Requirements
+Este projeto consiste na construção de uma API REST para consulta de países, cidades e estados brasileiros, além de calcular a distância entre cidades do Brasil. Foi utilizado o framework Spring para o desenvolvimento, PostgreSql para gerenciar o banco de dados e a plataforma Heroku para hospedar a aplicação.
 
-* Linux
-* Git
-* Java 11
-* Docker
-* IntelliJ Community
-* Heroku CLI
+
 
 ## DataBase
 
@@ -96,20 +91,3 @@ select earth_distance(
 
 * [DevCenter](https://devcenter.heroku.com/articles/getting-started-with-gradle-on-heroku)
 
-## Code Quality
-
-### PMD
-
-+ https://pmd.github.io/pmd-6.8.0/index.html
-
-### Checkstyle
-
-+ https://checkstyle.org/
-
-+ https://checkstyle.org/google_style.html
-
-+ http://google.github.io/styleguide/javaguide.html
-
-```shell script
-wget https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
-```
