@@ -5,6 +5,7 @@ Este projeto consiste na construção de uma API REST para consulta de países, 
 A base de dados utilizada é encontrada [aqui](https://github.com/chinnonsantos/sql-paises-estados-cidades).
 
 
+**Obs:** A primeira requisição pode demorar para carregar, pois o Heroku, em sua versão gratuita, possui várias limitações quanto a disponibilidade da aplicação.
 
 ## Exemplos
 
